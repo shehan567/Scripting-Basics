@@ -19,6 +19,15 @@ echo ${a}000 #This will print 10000
 DATE=$(date +%F)
 echo Good Morning, Today is ${DATE}
 
+## Executing a command and store that output in a variable is called command substitution. 
+# syntax : VAR=$(command)
+
+# Same way we can do arithematic expressions also, but with $((expression))
+
+ADD=$((100+20))
+
+echo ${ADD}
+
 
 
 
