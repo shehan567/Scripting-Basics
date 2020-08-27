@@ -17,6 +17,8 @@ echo $a
 echo ${a}000 #This will print 10000
 
 DATE=$(date +%F)
-echo Good Morning, Today's date 
+echo Good Morning, Today is ${DATE}
+
+
 
 
