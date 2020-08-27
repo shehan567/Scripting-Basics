@@ -5,6 +5,6 @@
 
 
 echo script name = $0
-echo uname = $1
-echo pwd = $2
+echo first Argument= $1
+echo Second Argument = $2
 
