@@ -26,7 +26,8 @@ echo Good Morning, Today is ${DATE}
 
 ADD=$((100+20))
 
-echo ${ADD}
+echo You owe ${ADD} Dollars
+
 
 
 
