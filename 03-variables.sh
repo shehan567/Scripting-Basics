@@ -13,4 +13,10 @@ d=9.9999
 
 # Access variable :  ${a} or $a, In some scenarios we use {} see line 17
 
-echo -e "/e[33m$a\e[0m"
+echo $a
+echo ${a}000 #This will print 10000
+
+DATE=$(date +%F)
+echo Good Morning, Today's date 
+
+
