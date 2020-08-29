@@ -11,5 +11,25 @@ ls >/tmp/out
 
 cat /tmp/out
 
+# Runt those below commands in AWS Server as automation
+
+#  echo Check this input redirector
+
+#  sudo yum install mariadb-server -y
+
+#  systemctl enable mariadb-server
+
+# then use automation to display databases using by using Input Redirector
+
+# vi /tmp/input
+
+# show databases; written in tmp/input
+
+# Then use Input redirector < like this, mysql </tmp/input
+
+
+
+
+
 
 
