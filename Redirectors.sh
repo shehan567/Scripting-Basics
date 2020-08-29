@@ -27,6 +27,12 @@ cat /tmp/out
 
 # Then use Input redirector < like this, mysql </tmp/input
 
+# Also you can use both together for example mysql takes the input from the file and send the output to another file
+
+# mysql </tmp/input >/tmp/out
+
+
+
 
 
 
