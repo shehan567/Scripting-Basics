@@ -7,13 +7,13 @@
 sample () {
     echo Hello World from Function
     echo a = ${a}
-    b = 20 
+    b=20 
 }
 
 # Call the function 
 
 # Main Programm
-a = 10
+a=10
 sample
 echo b = ${b}
 
