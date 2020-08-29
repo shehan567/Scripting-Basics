@@ -10,6 +10,8 @@
 # Shipping
 # Payment
 # User 
+# All 
+
 
 
 echo -e "Installing ${1} Service"
