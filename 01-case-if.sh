@@ -58,7 +58,7 @@ user () {
 USAGE() {
     echo -e "Usage\t\t\t : $0 component"
     echo -e "Components\t\t : frontend mongodb redis mysql rabbitmq cart catalogue shipping payment user"
-    echo -e "For all components use\t:  all"
+    echo -e "For all components use\t :  all"
     exit 1
 }
 
