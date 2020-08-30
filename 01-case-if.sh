@@ -68,11 +68,48 @@ case $1 in
         redis
         ;;
 
-    
-    
+    mysql)
+        mysql;;
+
+    rabbitmq)
+        rabbitmq
+        ;;
+
     cart)
         cart
         ;;
-    
+
+    catalogue)
+        catalogue
+        ;;
+
+    shipping)
+        shipping
+        ;;
+
+    payment)
+        payment
+        ;;
+
+    user)
+        user
+        ;;
+
     all)
+        frontend
+        mongodb
+        redis
+        mysql
+        rabbitmq
+        cart
+        catalogue
+        shipping
+        payment
+        user
+        ;;
+
+    
+    
+
+    
 
