@@ -107,6 +107,8 @@ case $1 in
         payment
         user
         ;;
+esac
+
 
     
     
