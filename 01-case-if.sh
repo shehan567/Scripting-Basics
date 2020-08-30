@@ -55,6 +55,12 @@ user () {
     echo "Installing User Service"
 }
 
+USAGE() {
+    echo "Usage\t\t\t: $0 component"
+    echo "Components\t\t: frontend mongodb redis mysql rabbitmq cart catalogue shipping payment user"
+    echo "For all components use\t: all"
+}
+
 case $1 in 
     frontend)
         frontend   
