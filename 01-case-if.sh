@@ -59,6 +59,7 @@ USAGE() {
     echo "Usage\t\t\t: $0 component"
     echo "Components\t\t: frontend mongodb redis mysql rabbitmq cart catalogue shipping payment user"
     echo "For all components use\t: all"
+    exit 1
 }
 
 case $1 in 
