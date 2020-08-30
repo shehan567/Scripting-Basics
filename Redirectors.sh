@@ -11,7 +11,7 @@ ls >/tmp/out
 
 cat /tmp/out
 
-# Runt those below commands in AWS Server as automation
+# Run those below commands in AWS Server as automation
 
 #  echo Check this input redirector
 
