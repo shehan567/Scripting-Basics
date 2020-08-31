@@ -67,7 +67,7 @@ user () {
 }
 
 USAGE() {
-    echo -e "Usage\t\t\t : $0 \e[1;4;31m<Choose component from below list with the script>\e[0m"
+    echo -e "Usage\t\t\t : $0 \e[1;4;30m<Choose component from below list with the script>\e[0m"
     echo -e "Components\t\t : \e[32mfrontend \e[33mmongodb \e[34mredis \e[35mmysql \e[36mrabbitmq \e[34mcart \e[32mcatalogue \e[33mshipping \e[34mpayment \e[35muser\e[0m"
     echo -e "For all components use\t : all"
     exit 1
