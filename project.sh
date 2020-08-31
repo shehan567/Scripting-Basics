@@ -26,8 +26,6 @@ frontend () {
         exit 1
         ;;
     esac
-
-
 }
 
 mongodb () {
