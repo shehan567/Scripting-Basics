@@ -82,7 +82,7 @@ ID_USER=$(id -u)
 case $ID_USER in
     0) true ;;   ## In certain cases don't do this approach, it may cause some issues, Will be discusses later. The root user or sudo user value = 0. true command does nothing in Linux.  
     *)           ## If you get any other value do as it in below. 
-        echo "Script should be run as root user or sudo"
+        echo -e "\t\t\t\4\e[31mREDScript should be run as root user or sudo\e[0m"
         USAGE
         ;;
     esac
