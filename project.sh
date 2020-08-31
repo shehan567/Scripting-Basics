@@ -47,7 +47,6 @@ frontend () {
     systemctl start nginx
     Stat $? "Start Nginx"
     ps -ef | grep nginx
-    ;;
 }
 
 mongodb () {
