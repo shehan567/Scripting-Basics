@@ -12,10 +12,12 @@
 # User 
 # All 
 
-
+Head() {
+    echo -e "\t\t\e[1;4;34m$1\e[0m"
+}
 
 frontend () {
-    echo "Installing Frontend Service"
+    Head "Installing Frontend Service"
     yum install nginx -y &>> $LOG_FILE      # Installing Nginx & Sending the out put to LOG_FILE, So no messages will be shown and it will be logged in the file.
     case $? in
         0)
@@ -82,7 +84,7 @@ ID_USER=$(id -u)
 case $ID_USER in
     0) true ;;   ## In certain cases don't do this approach, it may cause some issues, Will be discusses later. The root user or sudo user value = 0. true command does nothing in Linux.  
     *)           ## If you get any other value do as it in below. 
-        echo -e "\t\t\e[31mScript should be run as root user or sudo\e[0m"
+        echo -e "\t\t\e[1;4;31mScript should be run as root user or sudo\e[0m" ## \t - Tab Space, 1; - Bold Text, 4; is to underline.  
         USAGE
         ;;
     esac
