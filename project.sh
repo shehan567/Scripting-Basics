@@ -16,6 +16,18 @@
 
 frontend () {
     echo "Installing Frontend Service"
+    yum install nginx -y      # Installing Nginx
+    case $? in
+        0)
+        echo "Nginx Install - SUCCESS"
+        ;;
+        *)
+        echo "Nginx Install - FAILED"
+        exit 1
+        ;;
+    esac
+
+
 }
 
 mongodb () {
