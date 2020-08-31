@@ -16,18 +16,22 @@ Head() {
     echo -e "\t\t\e[1;4;34m$1\e[0m"
 }
 
-frontend () {
-    Head "Installing Frontend Service"
-    yum install nginx -y &>> $LOG_FILE      # Installing Nginx & Sending the out put to LOG_FILE, So no messages will be shown and it will be logged in the file.
-    case $? in
+Stat() {
+        case $1 in
         0)
-        echo "Nginx Install - SUCCESS"
+        echo "$2 - \e[32mSUCCESS\e[0m"
         ;;
         *)
-        echo "Nginx Install - FAILED"
+        echo "$2 - \e[31mFAILED\e[0m"
         exit 1
         ;;
     esac
+}
+
+frontend () {
+    Head "Installing Frontend Service"
+    yum install nginx -y &>> $LOG_FILE      # Installing Nginx & Sending the out put to LOG_FILE, So no messages will be shown and it will be logged in the file.
+    Stat $? "Nginx Install"
 }
 
 mongodb () {
