@@ -81,7 +81,7 @@ rm -rf users.js
 Stat $? "Removed users.js file\t\t\t"
 rm -rf README.md
 Stat $? "Removed README.md file\t\t\t"
-cd -
+cd - &>> $LOG_FILE
 
 
     echo '[mongodb-org-4.2]
