@@ -12,11 +12,14 @@
 # User 
 # All 
 
+LOG_FILE=/tmp/roboshop.log 
+rm -f $LOG_FILE 
+
 
 
 frontend () {
     echo "Installing Frontend Service"
-    yum install nginx -y      # Installing Nginx
+    yum install nginx -y &>> $LOG_FILE      # Installing Nginx & Sending the out put to LOG_FILE, So no messages will be shown and it will be logged in the file.
     case $? in
         0)
         echo "Nginx Install - SUCCESS"
