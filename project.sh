@@ -15,6 +15,16 @@
 LOG_FILE=/tmp/roboshop.log 
 rm -f $LOG_FILE 
 
+## This below command is to check if you are the root user or not
+
+ID_USER=$(id -u)
+case $ID_USER in
+    0) true ;;   ## In certain cases don't do this approach, it may cause some issues, Will be discusses later. The root user or sudo user value = 0. true command does nothing in Linux.  
+    *)           ## If you get any other value do as it in below. 
+        echo "Script should be run as root user or sudo"
+        USAGE
+        ;;
+    esac
 
 
 frontend () {
