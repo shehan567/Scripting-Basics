@@ -76,7 +76,7 @@ gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo
 Stat_Cont $? "Download MongoDB Repo\t\t\t"
-yum install -y mongodb-org
+yum install -y mongodb-org &>> $LOG_FILE
 Stat $? "Install MongoDB Service\t\t\t"
 systemctl enable mongod &>> $LOG_FILE
 systemctl start mongod &>> $LOG_FILE
