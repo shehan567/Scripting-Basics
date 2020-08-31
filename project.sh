@@ -138,6 +138,8 @@ cart () {
 catalogue () {
     Head "Installing catalogue Service"
 
+
+
     useradd roboshop &>> $LOG_FILE
     Stat $? "roboshop User Add"
 
@@ -150,7 +152,7 @@ catalogue () {
     unzip -o /tmp/catalogue.zip
     npm install
     node server.js &>>catalogue.log 
-    
+
 
     cd /home/roboshop
 }
