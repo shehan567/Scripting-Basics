@@ -31,39 +31,39 @@ frontend () {
 }
 
 mongodb () {
-    echo "Installing MongoDB Service"
+    Head "Installing MongoDB Service"
 }
 
 redis () {
-    echo "Installing Redis Service"
+    Head "Installing Redis Service"
 }
 
 mysql () {
-    echo "Installing MySQL Service"
+    Head "Installing MySQL Service"
 }
 
 rabbitmq () {
-    echo "Installing RabbitMQ Service"
+    Head "Installing RabbitMQ Service"
 }
 
 cart () {
-    echo "Installing Cart Service"
+    Head "Installing Cart Service"
 }
 
 catalogue () {
-    echo "Installing catalogue Service"
+    Head "Installing catalogue Service"
 }
 
 shipping () {
-    echo "Installing Shipping Service"
+    Head "Installing Shipping Service"
 }
 
 payment () {
-    echo "Installing Payment Service"
+    Head "Installing Payment Service"
 }
 
 user () {
-    echo "Installing User Service"
+    Head "Installing User Service"
 }
 
 USAGE() {
