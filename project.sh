@@ -69,6 +69,16 @@ frontend () {
 
 mongodb () {
     Head "Installing MongoDB Service"
+rm -rf mongodb.zip
+Stat $? "Removed Previous mongodb.zip file\t"
+rm -rf mongodb-27017.sock
+Stat $? "Removed mongodb-27017.sock\t"
+rm -rf catalogue.js
+Stat $? "Removed Catalogue.js file\t\t"
+rm -rf users.js
+Stat $? "Removed users.js file\t\t\t"
+
+
     echo '[mongodb-org-4.2]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
@@ -83,6 +93,9 @@ systemctl start mongod &>> $LOG_FILE
 Stat $? "Start MongoDB Service\t\t\t"
 
 cd /tmp
+
+
+
 curl -s -L -o /tmp/mongodb.zip "https://dev.azure.com/DevOps-Batches/98e5c57f-66c8-4828-acd6-66158ed6ee33/_apis/git/repositories/52feee4a-7c54-4f95-b1f5-2051a56b9d76/items?path=%2F&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=zip&api-version=5.0&download=true" &>> $LOG_FILE
 Stat $? "Download MongoDB Schema\t\t\t"
 unzip mongodb.zip &>> $LOG_FILE
