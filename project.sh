@@ -40,13 +40,16 @@ frontend () {
     rm -rf *                                       
     unzip /tmp/frontend.zip &>> $LOG_FILE
     Stat $? "Extract frontend files" 
-    mv static/* 
+    mv static/* &>> $LOG_FILE
+    Stat $? "mv static"
     rm -rf static README.md
+    Stat $? "README.md file Removal"
     mv localhost.conf /etc/nginx/nginx.conf
+    Stat $? "MOVE localhost.conf to nginx.conf"
     systemctl enable nginx
     systemctl start nginx
     Stat $? "Start Nginx"
-    ps -ef | grep nginx
+    ps -ef | grep nginx 
 }
 
 mongodb () {
