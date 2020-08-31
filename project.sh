@@ -30,6 +30,19 @@ Stat() {
     esac
 }
 
+## This STAT_CONT is used only to check the operation passed or fail, but continue operation
+
+Stat_Cont() {
+    case $1 in
+     0)
+        echo -e "$2 - \e[32mSUCCESS\e[0m"
+        ;;
+        *)
+        echo -e "$2 - \e[31mFAILED\e[0m"
+        ;;
+    esac
+}
+
 frontend () {
     Head "Installing Frontend Service"
     yum install nginx -y &>> $LOG_FILE      # Installing Nginx & Sending the out put to LOG_FILE, So no messages will be shown and it will be logged in the file.
@@ -41,7 +54,7 @@ frontend () {
     unzip /tmp/frontend.zip &>> $LOG_FILE
     Stat $? "Extract frontend files" 
     mv static/* &>> $LOG_FILE
-    Stat $? "mv static"
+    Stat_Cont $? "mv static"
     rm -rf static README.md
     Stat $? "README.md file Removal"
     mv localhost.conf /etc/nginx/nginx.conf
