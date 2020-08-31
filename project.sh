@@ -13,7 +13,7 @@
 # All 
 
 Head() {
-    echo -e "\t\t\e[1;4;5;34m$1\e[0m"
+    echo -e "\t\t\e[1;4;5m34m$1\e[0m"
 }
 
 ## Stat is used for validation of the perticular operation is successfull or not. It's done by using the exit status. 
