@@ -46,7 +46,7 @@ Stat_Cont() {
 frontend () {
     Head "Installing Frontend Service"
     yum remove nginx -y &>> $LOG_FILE
-    Stat_Cont $? "Removed Previous Nginx\t\t"
+    Stat_Cont $? "Removed Previous Nginx\t\t\t"
     yum install nginx -y &>> $LOG_FILE      # Installing Nginx & Sending the out put to LOG_FILE, So no messages will be shown and it will be logged in the file.
     Stat $? "Nginx Install\t\t\t\t"
     curl -s -L -o /tmp/frontend.zip "https://dev.azure.com/DevOps-Batches/98e5c57f-66c8-4828-acd6-66158ed6ee33/_apis/git/repositories/65042ce1-fdc2-4472-9aa2-3ae9b87c1ee4/items?path=%2F&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=zip&api-version=5.0&download=true"
