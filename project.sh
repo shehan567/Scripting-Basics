@@ -69,15 +69,19 @@ frontend () {
 
 mongodb () {
     Head "Installing MongoDB Service"
+
+cd /tmp
 rm -rf mongodb.zip
 Stat $? "Removed Previous mongodb.zip file\t"
 rm -rf mongodb-27017.sock
-Stat $? "Removed mongodb-27017.sock\t"
+Stat $? "Removed mongodb-27017.sock\t\t"
 rm -rf catalogue.js
 Stat $? "Removed Catalogue.js file\t\t"
 rm -rf users.js
 Stat $? "Removed users.js file\t\t\t"
- 
+rm -rf README.md
+Stat $? "Removed README.md file\t\t\t"
+cd -
 
 
     echo '[mongodb-org-4.2]
