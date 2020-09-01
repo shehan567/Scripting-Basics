@@ -48,7 +48,7 @@ frontend () {
     ## yum remove nginx -y &>> $LOG_FILE             (unzip -o option in line 59 replaced this command & line 49, because -o option overwrites previous installs)
     ## Stat_Cont $? "Removed Previous Nginx\t\t\t"
 
-    
+
     yum install nginx -y &>> $LOG_FILE      # Installing Nginx & Sending the out put to LOG_FILE, So no messages will be shown and it will be logged in the file.
     Stat $? "Nginx Install\t\t\t\t"
 
@@ -127,6 +127,20 @@ redis () {
 
 mysql () {
     Head "Installing MySQL Service"
+
+    curl -L -o /tmp/mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar https://downloads.mysql.com/archives/get/p/23/file/mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar &>> $LOG_FILE
+    Stat $? "Download MySQL Bundle\t\t"
+
+    cd /tmp
+    tar -xf mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar &>> $LOG_FILE
+    Stat $? "Extract MySQL Bundle\t\t"
+
+    yum remove mariadb-libs -y
+    yum install mysql-community-client-5.7.28-1.el7.x86_64.rpm mysql-community-common-5.7.28-1.el7.x86_64.rpm mysql-community-libs-5.7.28-1.el7.x86_64.rpm mysql-community-server-5.7.28-1.el7.x86_64.rpm -y &>> $LOG_FILE
+    stat $? "Install MySQL Database\t\t"
+
+    
+
 }
 
 rabbitmq () {
