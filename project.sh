@@ -138,11 +138,13 @@ mysql () {
     Stat $? "Download MySQL Bundle\t\t"
 
     cd /tmp
-    tar -xf mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar &>> $LOG_FILE
+    tar -xf mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar 
     Stat $? "Extract MySQL Bundle\t\t"
 
     yum remove mariadb-libs -y
-    yum install mysql-community-client-5.7.28-1.el7.x86_64.rpm mysql-community-common-5.7.28-1.el7.x86_64.rpm mysql-community-libs-5.7.28-1.el7.x86_64.rpm mysql-community-server-5.7.28-1.el7.x86_64.rpm -y &>> $LOG_FILE
+    Stat $? "Remove Mariadb"
+
+    yum install mysql-community-client-5.7.28-1.el7.x86_64.rpm mysql-community-common-5.7.28-1.el7.x86_64.rpm mysql-community-libs-5.7.28-1.el7.x86_64.rpm mysql-community-server-5.7.28-1.el7.x86_64.rpm -y &>>$LOG_FILE
     stat $? "Install MySQL Database\t\t"
     ;;
     esac
