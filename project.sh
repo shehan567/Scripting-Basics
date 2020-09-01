@@ -30,7 +30,7 @@ Stat() {
     esac
 }
 
-## This STAT_CONT is used only to check the operation passed or fail, but continue operation
+## This STAT_CONT is used only to check the operation passed or fail, but continue to next step. 
 
 Stat_Cont() {
     case $1 in
@@ -47,6 +47,8 @@ frontend () {
     Head "Installing Frontend Service"
     ## yum remove nginx -y &>> $LOG_FILE             (unzip -o option in line 59 replaced this command & line 49, because -o option overwrites previous installs)
     ## Stat_Cont $? "Removed Previous Nginx\t\t\t"
+
+    
     yum install nginx -y &>> $LOG_FILE      # Installing Nginx & Sending the out put to LOG_FILE, So no messages will be shown and it will be logged in the file.
     Stat $? "Nginx Install\t\t\t\t"
 
@@ -140,8 +142,8 @@ catalogue () {
 
 
 
-    useradd roboshop &>> $LOG_FILE
-    Stat $? "roboshop User Add"
+    useradd roboshop 
+    Stat_Cont $? "roboshop User Add"
 
     curl -s -L -o /tmp/catalogue.zip "https://dev.azure.com/DevOps-Batches/98e5c57f-66c8-4828-acd6-66158ed6ee33/_apis/git/repositories/73bf0c1f-1ba6-49fa-ae4e-e1d6df20786f/items?path=%2F&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=zip&api-version=5.0&download=true" &>> $LOG_FILE
     Stat $? "Downloaded Catalogue.zip"
