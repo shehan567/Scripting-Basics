@@ -175,9 +175,13 @@ catalogue () {
     Stat $? "Downloaded Catalogue.zip"
 
     cd /home/roboshop
+    Stat_Cont $? "entered roboshop dir"
     
     mkdir catalogue
+    Stat_Cont $? "MKDIR CATALOGUE"
+
     cd catalogue
+    Stat_Cont $? "CD CATALOGUE"
 
     unzip -o /tmp/catalogue.zip
     npm install
