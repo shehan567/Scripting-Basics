@@ -16,17 +16,26 @@ Stat() {
 
 yum install gcc-c++ -y 
 
-URL=$(curl -s https://nodejs.org/en/download/ | xargs -n1 | grep linux-x64.tar | sed -e 's|=| |g' -e 's|>| |g'| xargs -n1 | grep ^http)
-FILENAME=$(echo $URL | awk -F / '{print $NF}')
-FOLDER_NAME=$(echo $FILENAME |sed -e 's/.tar.xz//')
+URL=$(curl -s https://nodejs.org/en/download/ | xargs -n1 | grep linux-x64.tar | sed -e 's|=| |g' -e 's|>| |g'| xargs -n1 | grep ^http) &>> $LOG_FILE
 
-curl -s -o /tmp/$FILENAME $URL 
+FILENAME=$(echo $URL | awk -F / '{print $NF}') &>> $LOG_FILE
+
+FOLDER_NAME=$(echo $FILENAME |sed -e 's/.tar.xz//') &>> $LOG_FILE
+
+curl -s -o /tmp/$FILENAME $URL &>> $LOG_FILE
 
 Stat $? "NODEJS INSTALL\t\t\t\t"
 
 cd /opt
-tar -xf /tmp/$FILENAME
+tar -xf /tmp/$FILENAME &>> $LOG_FILE
+
 mv $FOLDER_NAME nodejs
 ln -s /opt/nodejs/bin/node /bin/node || true
 ln -s /opt/nodejs/bin/npm /bin/npm  || true
 ln -s /opt/nodejs/bin/npx /bin/npx || true
+
+
+## Main program
+
+LOG_FILE=/tmp/nodejs.log 
+rm -f $LOG_FILE 
