@@ -14,6 +14,26 @@ Stat() {
 }
 
 
+
+Stat_Cont() {
+    case $1 in
+     0)
+        echo -e "$2 - \e[32mSUCCESS\e[0m"
+        ;;
+        *)
+        echo -e "$2 - \e[31mFAILED\e[0m"
+        ;;
+    esac
+}
+
+cd /tmp
+touch nodejs.log
+Stat_Cont $? "Nodejs.log file creation"
+
+cd -
+
+
+
 yum install gcc-c++ -y 
 
 URL=$(curl -s https://nodejs.org/en/download/ | xargs -n1 | grep linux-x64.tar | sed -e 's|=| |g' -e 's|>| |g'| xargs -n1 | grep ^http) &>> $NODE_FILE
