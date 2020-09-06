@@ -57,5 +57,5 @@ ln -s /opt/nodejs/bin/npx /bin/npx || true
 
 ## Main program
 
-LOG_FILE=/tmp/nodejs.log 
+NODE_FILE=/tmp/nodejs.log 
 rm -f $NODE_FILE 
